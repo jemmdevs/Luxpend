@@ -411,3 +411,193 @@
     0% { background-position: 0% 0%; }
     100% { background-position: 100% 100%; }
   }
+  
+  /* Clases adicionales para mejorar el responsive */
+  .responsive-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .responsive-form-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Media queries para dispositivos móviles */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      width: 95%;
+      padding: 1.5rem;
+      margin: 1rem auto;
+    }
+    
+    .form-container,
+    .list-container {
+      padding: 1.5rem;
+    }
+    
+    .table th,
+    .table td {
+      padding: 1rem;
+    }
+    
+    .total-monthly {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dashboard-container {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem auto;
+      border-radius: 10px;
+    }
+    
+    .form-container,
+    .list-container {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-field {
+      margin-bottom: 1rem;
+    }
+    
+    .input {
+      padding: 0.8rem 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
+    }
+    
+    .button {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.8rem;
+    }
+    
+    .table-container {
+      margin: 1rem 0;
+      border-radius: 10px;
+    }
+    
+    .table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .table th,
+    .table td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .total-monthly {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Media queries para dispositivos móviles */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      width: 95%;
+      padding: 1.5rem;
+      margin: 1rem auto;
+    }
+    
+    .form-container,
+    .list-container {
+      padding: 1.5rem;
+    }
+    
+    .table th,
+    .table td {
+      padding: 1rem;
+    }
+    
+    .total-monthly {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dashboard-container {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem auto;
+      border-radius: 10px;
+    }
+    
+    .form-container,
+    .list-container {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-field {
+      margin-bottom: 1rem;
+    }
+    
+    .input {
+      padding: 0.8rem 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
+    }
+    
+    .button {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.8rem;
+    }
+    
+    .table-container {
+      margin: 1rem 0;
+      border-radius: 10px;
+    }
+    
+    .table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .table th,
+    .table td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .total-monthly {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
