@@ -104,13 +104,16 @@ export const FinancialRecordList = () => {
       {
         Header: "Date",
         accessor: "date",
-        Cell: (props: CellProps<FinancialRecord>) => (
-          <EditableCell
-            {...props}
-            updateRecord={updateCellRecord}
-            editable={false}
-          />
-        ),
+        Cell: ({ value }: CellProps<FinancialRecord>) => {
+          // Convertir la fecha a un formato más amigable (DD/MM/YYYY)
+          const date = value instanceof Date ? value : new Date(value);
+          const formattedDate = date.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+          });
+          return <div>{formattedDate}</div>;
+        },
       },
       {
         Header: "Delete",

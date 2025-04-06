@@ -2,8 +2,25 @@
 .dashboard-container {
     width: 90%;
     max-width: 1200px;
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    background-color: var(--bg-primary);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px var(--shadow-color), 0 0 0 1px var(--border-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .dashboard-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(62, 207, 142, 0.03) 0%, transparent 70%);
+    z-index: -1;
   }
   
   /* General styling for headers within the app */
@@ -11,118 +28,302 @@
   h2 {
     color: var(--text-primary);
     text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 600;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), rgba(62, 207, 142, 0.5));
+    border-radius: 2px;
   }
   
   /* Form and list container */
   .form-container,
   .list-container {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow-color), 0 1px 3px rgba(0,0,0,0.05);
+    transition: all var(--transition-speed);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(29, 155, 240, 0.03) 0%, transparent 70%);
+    z-index: 0;
   }
   
   /* Common class for all buttons */
   .button {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(62, 207, 142, 0.85) 100%);
     color: var(--button-text);
     border: none;
-    padding: 0.6rem 1.2rem;
-    margin: 0.5rem;
-    border-radius: 4px;
+    padding: 0.85rem 1.75rem;
+    margin: 1rem 0;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 500;
-    transition: transform 0.2s, opacity 0.2s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(62, 207, 142, 0.2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
   }
   
   .button:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(62, 207, 142, 0.3);
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(62, 207, 142, 0.95) 100%);
+  }
+  
+  .button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(62, 207, 142, 0.15);
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.7s ease;
+    z-index: 0;
+  }
+  
+  .button:hover::before {
+    left: 100%;
   }
   
   .button-delete {
-    background-color: #e74c3c;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     color: var(--button-text);
     border: none;
-    padding: 0.6rem 1.2rem;
-    margin: 0.5rem;
-    border-radius: 4px;
+    padding: 0.85rem 1.75rem;
+    margin: 1rem 0;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 500;
-    transition: transform 0.2s, opacity 0.2s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
   }
   
   .button-delete:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 90%);
+  }
+  
+  .button-delete:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  }
+  
+  .button-delete::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.7s ease;
+    z-index: 0;
+  }
+  
+  .button-delete:hover::before {
+    left: 100%;
   }
   
   /* Common class for all input fields and selects */
   .input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem 1.2rem;
     margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.8rem;
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 10px;
     color: var(--text-primary);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) inset;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    max-width: 100%; /* Evita que los inputs se salgan del contenedor */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
   }
   
   .input:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+    box-shadow: 0 0 0 3px rgba(29, 155, 240, 0.15), 0 2px 4px rgba(0, 0, 0, 0.02) inset;
+    transform: translateY(-2px);
+  }
+  
+  .input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
   }
   
   /* Labels for better readability */
   label {
-    font-weight: 500;
+    font-weight: 600;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     color: var(--text-secondary);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+  
+  /* Form field styling */
+  .form-field {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .form-field:hover label {
+    color: var(--accent-color);
+  }
+  
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(62, 207, 142, 0.15), 0 2px 4px rgba(0, 0, 0, 0.02) inset;
+  }
+  
+  .form-field::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+    z-index: 2;
+  }
+  
+  .form-field:hover::after {
+    width: 100%;
   }
   
   .table-container {
-    margin: 1.5rem 0;
+    margin: 2rem 0;
     overflow-x: auto; /* Enables horizontal scrolling if the table is too wide */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px var(--shadow-color), 0 0 0 1px var(--border-color);
+    transition: all var(--transition-speed);
+    background-color: var(--card-bg);
+    position: relative;
+  }
+  
+  .table-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(74, 108, 247, 0.03) 0%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
   }
   
   .table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin-top: 1rem;
-    border-radius: 8px;
+    margin: 0;
+    border-radius: 16px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
   
   .table th,
   .table td {
-    padding: 1rem 1.25rem;
+    padding: 1.5rem 1.75rem;
     border-bottom: 1px solid var(--border-color);
     text-align: left;
+    transition: all 0.3s ease;
   }
   
   .table th {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(62, 207, 142, 0.85) 100%);
     color: white;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(62, 207, 142, 0.2);
   }
   
   .table tbody tr {
     background-color: var(--card-bg);
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
   }
   
   .table tbody tr:nth-child(odd) {
@@ -130,5 +331,83 @@
   }
   
   .table tbody tr:hover {
-    background-color: var(--bg-secondary);
+    background-color: rgba(62, 207, 142, 0.05);
+    transform: translateX(2px);
+    border-left: 3px solid var(--accent-color);
+  }
+  
+  .table td {
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+  }
+  
+  .table td:first-child {
+    font-weight: 600;
+  }
+  
+  .dashboard-container {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .form-container {
+    animation: slideInUp 0.8s ease-in-out 0.2s both;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-container form {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .table-container {
+    animation: slideInUp 0.8s ease-in-out 0.4s both;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Estilo para el total mensual */
+  .total-monthly {
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(62, 207, 142, 0.85) 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(62, 207, 142, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-in-out 0.3s both;
+  }
+  
+  .total-monthly::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 50%, transparent 75%);
+    background-size: 250% 250%;
+    animation: shimmer 3s infinite linear;
+    z-index: 1;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
   }

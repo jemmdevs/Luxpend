@@ -19,9 +19,9 @@ export const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1> Welcome {user?.firstName}! Here Are Your Finances:</h1>
+      <h1>Bienvenido {user?.firstName}! Aquí están tus finanzas</h1>
       <FinancialRecordForm />
-      <div>Total Monthly: ${totalMonthly}</div>
+      <div className="total-monthly">Total Mensual: ${totalMonthly.toFixed(2)}</div>
       <FinancialRecordList />
     </div>
   );

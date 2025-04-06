@@ -32,6 +32,7 @@ export const FinancialRecordForm = () => {
 
   return (
     <div className="form-container">
+      <h2>Registrar Nueva Transacción</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-field">
           <label>Description:</label>
