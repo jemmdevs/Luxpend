@@ -14,15 +14,23 @@ export const FinancialRecordForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Validar que el monto sea un número válido
+    const amountValue = parseFloat(amount);
+    if (isNaN(amountValue)) {
+      alert("Por favor, introduce un monto válido");
+      return;
+    }
+
     const newRecord = {
       userId: user?.id ?? "",
-      date: new Date(),
+      date: new Date().toISOString(), // Convertir a formato ISO para mejor compatibilidad
       description: description,
-      amount: parseFloat(amount),
+      amount: amountValue,
       category: category,
       paymentMethod: paymentMethod,
     };
 
+    console.log("Enviando registro:", newRecord);
     addRecord(newRecord);
     setDescription("");
     setAmount("");
@@ -35,7 +43,7 @@ export const FinancialRecordForm = () => {
       <h2>Registrar Nueva Transacción</h2>
       <form onSubmit={handleSubmit} className="responsive-form-inner">
         <div className="form-field">
-          <label>Product:</label>
+          <label>Description:</label>
           <input
             type="text"
             required
@@ -58,7 +66,7 @@ export const FinancialRecordForm = () => {
           />
         </div>
         <div className="form-field">
-          <label>Type:</label>
+          <label>Category:</label>
           <select
             required
             className="input"
@@ -69,7 +77,7 @@ export const FinancialRecordForm = () => {
             <option value="Food">Food</option>
             <option value="Rent">Rent</option>
             <option value="Utilities">Utilities</option>
-            <option value="Transportation">Vehicles</option>
+            <option value="Vehicles">Vehicles</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -85,7 +93,7 @@ export const FinancialRecordForm = () => {
             <option value="Credit Card">Credit Card</option>
             <option value="Cash">Cash</option>
             <option value="Bank Transfer">Bank Transfer</option>
-            <option value="Other">Bizum</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <button type="submit" className="button">

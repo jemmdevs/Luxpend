@@ -11,9 +11,18 @@ interface FinancialRecord {
 
 const financialRecordSchema = new mongoose.Schema<FinancialRecord>({
   userId: { type: String, required: true },
-  date: { type: Date, required: true },
+  date: { type: Date, required: true, default: Date.now },
   description: { type: String, required: true },
-  amount: { type: Number, required: true },
+  amount: { 
+    type: Number, 
+    required: true,
+    validate: {
+      validator: function(value: number) {
+        return !isNaN(value) && isFinite(value);
+      },
+      message: 'El monto debe ser un número válido'
+    }
+  },
   category: { type: String, required: true },
   paymentMethod: { type: String, required: true },
 });

@@ -18,13 +18,17 @@ router.get("/getAllByUserID/:userId", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   try {
+    console.log("Datos recibidos:", req.body);
     const newRecordBody = req.body;
     const newRecord = new FinancialRecordModel(newRecordBody);
+    console.log("Modelo creado:", newRecord);
     const savedRecord = await newRecord.save();
+    console.log("Registro guardado:", savedRecord);
 
     res.status(200).send(savedRecord);
   } catch (err) {
-    res.status(500).send(err);
+    console.error("Error al guardar registro:", err);
+    res.status(500).send(err instanceof Error ? err.message : String(err));
   }
 });
 

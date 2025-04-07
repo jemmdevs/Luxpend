@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 export interface FinancialRecord {
   _id?: string;
   userId: string;
-  date: Date;
+  date: Date | string; // Permitir tanto Date como string para mayor compatibilidad
   description: string;
   amount: number;
   category: string;
@@ -48,20 +48,28 @@ export const FinancialRecordsProvider = ({
   }, [user]);
 
   const addRecord = async (record: FinancialRecord) => {
-    const response = await fetch("http://localhost:3001/financial-records", {
-      method: "POST",
-      body: JSON.stringify(record),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
     try {
+      console.log("Enviando registro:", record);
+      const response = await fetch("http://localhost:3001/financial-records", {
+        method: "POST",
+        body: JSON.stringify(record),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       if (response.ok) {
         const newRecord = await response.json();
+        console.log("Registro añadido con éxito:", newRecord);
         setRecords((prev) => [...prev, newRecord]);
+      } else {
+        const errorData = await response.text();
+        console.error("Error al añadir registro:", response.status, errorData);
+        throw new Error(`Error ${response.status}: ${errorData}`);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.error("Excepción al añadir registro:", err);
+    }
   };
 
   const updateRecord = async (id: string, newRecord: FinancialRecord) => {
